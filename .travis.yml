@@ -9,10 +9,10 @@ srcipt:
     - docker run -e CI=true hansherrlich/react-test npm test -- --coverage
 
 after_success: 
-    - docker build -t hansherrlich/multi-client -f ./client   
-    - docker build -t hansherrlich/multi-nginx -f ./nginx
-    - docker build -t hansherrlich/multi-server -f ./server
-    - docker build -t hansherrlich/multi-worker -f ./worker
+    - docker build -t hansherrlich/multi-client ./client   
+    - docker build -t hansherrlich/multi-nginx  ./nginx
+    - docker build -t hansherrlich/multi-server ./server
+    - docker build -t hansherrlich/multi-worker ./worker
     
     # log into docker 
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
